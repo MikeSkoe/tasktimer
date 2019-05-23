@@ -15,22 +15,24 @@ class App extends Component {
 		time: 0,
 		running: undefined,
 		todos: [
-			{name: 'one', time: 0, inProcess: false},
-			{name: 'two', time: 0, inProcess: true},
-			{name: 'three', time: 0, inProcess: true},
+			{name: 'one', time: 0, inProcess: false, id: 0},
+			{name: 'two', time: 0, inProcess: true, id: 1},
+			{name: 'three', time: 0, inProcess: true, id: 2},
 		],
 	};
 
 	this.view = state => h('div', null, [
-		h('h1', null, secsToTime(state.time)),
-		Button(state, this.run),
-		Todos(state.todos, this.toggleProcess, this.deleteTask),
+		h('h1', null, [
+			secsToTime(state.time),
+			Button(state, this.run),
+		]),
 		h('input', {onkeydown: e => {
 			if (e.keyCode === 13) {
 				this.run('addTodo', e.target.value);
 				e.target.value = '';
 			}
 		}}),
+		Todos(state.todos, this.toggleProcess, this.deleteTask),
 	]);
 
 	this.update = {
@@ -39,18 +41,18 @@ class App extends Component {
 		plus: state => {
 			const active = state.todos
 				.filter(todo => !!todo.inProcess)
-				.map(todo => todo.name);
+				.map(todo => todo.id);
 
 			const todos = state.todos
-				.map(todo => active.includes(todo.name) 
+				.map(todo => active.includes(todo.id) 
 					? {...todo, time: todo.time + 1/active.length} 
 					: todo
 				)
 			
 			return {...state, time: state.time + 1, todos}
 		},
-		toggleProcess: (state, name) => {
-			const todos = state.todos.map(todo => todo.name === name 
+		toggleProcess: (state, id) => {
+			const todos = state.todos.map(todo => todo.id === id 
 				? {...todo, inProcess: !todo.inProcess}
 				: todo
 			);
@@ -58,11 +60,19 @@ class App extends Component {
 		},
 		addTodo: (state, name) => ({
 			...state, 
-			todos: [...state.todos, {name, inProcess: false, time: 0}],
+			todos: [
+				{
+					name, 
+					inProcess: true, 
+					time: 0, 
+					id: Math.floor(Math.random() * 1000)
+				},
+				...state.todos, 
+			],
 		}),
-		deleteTask: (state, name) => ({
+		deleteTask: (state, id) => ({
 			...state,
-			todos: state.todos.filter(todo => todo.name !== name),
+			todos: state.todos.filter(todo => todo.id !== id),
 		}),
 	};
   }
