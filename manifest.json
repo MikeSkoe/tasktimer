@@ -1,0 +1,16 @@
+{
+   "name": "Task Timer",
+   "short_name": "Task Timer",
+   "start_url": ".",
+   "display": "standalone",
+   "orientation": "portrait",
+   "background_color": "#2C3039",
+   "theme_color": "#2C3039",
+   "icons": [
+      {
+         "src": "assets/512x512.png",
+         "sizes": "512x512",
+         "type": "image/png"
+      }
+   ]
+}

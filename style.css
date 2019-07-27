@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Ubuntu Light'), local('Ubuntu-Light'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCv6KVjbNBYlgoC1CzjsGyI.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Ubuntu Regular'), local('Ubuntu-Regular'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCs6KVjbNBYlgoKfw7z.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Ubuntu Medium'), local('Ubuntu-Medium'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCv6KVjbNBYlgoCjC3jsGyI.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCv6KVjbNBYlgoCxCvjsGyI.ttf) format('truetype');
+}
+body {
+  background: linear-gradient(180deg, #2C3039 0%, #242424 60%);
+  background-color: #2C3039;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-family: Ubuntu;
+  font-weight: 500;
+}
+body * {
+  cursor: default;
+}
+body #app {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+}
+body #app .header .summary {
+  font-weight: lighter;
+  width: 100%;
+  text-align: center;
+  font-size: 64px;
+  opacity: 0.8;
+}
+body #app .header .summary.running {
+  font-weight: bold;
+  opacity: 1;
+}
+body #app .tasks {
+  margin-top: 20px;
+  margin-bottom: 120px;
+}
+body #app .tasks .task {
+  position: relative;
+  display: flex;
+  font-weight: normal;
+  padding: 5px 10px;
+}
+body #app .tasks .task .edit {
+  position: absolute;
+  left: -15px;
+  opacity: 0;
+}
+body #app .tasks .task .edit:hover {
+  opacity: 1;
+}
+body #app .tasks .task.selected {
+  font-weight: bold;
+}
+body #app .tasks .task .time {
+  margin-left: auto;
+}
+body #app .panel {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #242424;
+}
+body #app .panel .input {
+  width: 300px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  border-bottom: 1px solid white;
+  margin: 10px;
+  border-radius: 0;
+}
+body #app .panel .btns {
+  display: flex;
+  padding-bottom: 20px;
+}
+body #app .panel .btns .btn {
+  padding: 5px 10px;
+}
