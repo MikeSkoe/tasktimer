@@ -6,12 +6,16 @@
   "scripts": {
     "server": "node server.js",
     "ts": "tsc -w",
-    "start": "node server.js | tsc -w"
+    "less": "node node_modules/less-watch-compiler/dist/less-watch-compiler.js src public style.less",
+    "start": "npm run server | npm run less | npm run ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.0"
+  },
+  "devDependencies": {
+    "less-watch-compiler": "^1.13.0"
   }
 }

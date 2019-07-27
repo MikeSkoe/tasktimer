@@ -1,13 +1,12 @@
 {
     "compilerOptions": {
-        "outDir": "./built",
+        "outDir": "public",
         "allowJs": true,
 		"sourceMap": true,
 		"removeComments": true,
-		"target": "es6"
+		"target": "esnext"
     },
     "include": [
         "./src/**/*"
-    ],
-	"moduleResolution": "node"
+    ]
 }

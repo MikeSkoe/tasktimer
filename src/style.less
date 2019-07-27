@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap');
+
+body {
+   background: linear-gradient(180deg, #2C3039 0%, #242424 60%);
+   background-color: #2C3039;
+   color: white;
+   display: flex;
+   justify-content: center;
+   font-family: Ubuntu;
+   font-weight: 500;
+   
+   * {
+      cursor: default;
+   }
+
+   #app {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 300px;
+
+      .header {
+         .summary {
+            font-weight: lighter;
+            width: 100%;
+            text-align: center;
+            font-size: 64px;
+            opacity: .8;
+
+            &.running {
+               font-weight: bold;
+               opacity: 1;
+            }
+         }
+         button {
+         }
+      }
+
+      .tasks {
+         margin-top: 20px;
+         margin-bottom: 120px;
+
+         .task {
+            position: relative;
+            display: flex;
+            font-weight: normal;
+            padding: 5px 10px;
+
+            .edit {
+               position: absolute;
+               left: -15px;
+               opacity: 0;
+
+               &:hover {
+                  opacity: 1;
+               }
+            }
+
+            &.selected {
+               font-weight: bold;
+            }
+
+            .title {
+            }
+            .time {
+               margin-left: auto;
+            }
+         }
+      }
+
+      .panel {
+         width: 100%;
+         position: fixed;
+         bottom: 0;
+         left: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: space-around;
+         background: #242424;
+
+         .input {
+            width: 300px;
+            height: 50px;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 20px;
+            border-bottom: 1px solid white;
+            margin: 10px;
+            border-radius: 0;
+         }
+
+         .btns {
+            display: flex;
+            padding-bottom: 20px;
+
+            .btn {
+               padding: 5px 10px;
+            }
+         }
+      }
+
+   }
+}
