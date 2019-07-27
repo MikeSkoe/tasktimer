@@ -100,16 +100,14 @@ const map = (state, sub) => (fn, shouldUpdate = (pV, nV) => JSON.stringify(pV) !
     const [fnArg] = getArgs(fn);
     let arr = state()[fnArg];
     const placeholder = c('div');
-    console.log('placeholder', placeholder);
     let items = [placeholder].concat(...arr.map(fn));
-    console.log('items', items);
     sub([fnArg], (...stVals) => {
         const newArr = state()[fnArg];
         const addedVals = newArr.filter(item => !!item && notIn(arr)(item));
         const removedVals = arr.filter(notIn(newArr));
         const oldWithoutRemoved = arr.filter(notIn(removedVals));
         const newWithoutAdded = newArr.filter(notIn(addedVals));
-        const newItems = [];
+        const newItems = [placeholder];
         removedVals.forEach(val => {
             const deleted = getIn(items, val.key);
             deleted.del ? deleted.del() : deleted.remove();
@@ -137,7 +135,6 @@ const map = (state, sub) => (fn, shouldUpdate = (pV, nV) => JSON.stringify(pV) !
         items = newItems.length > 0 ? newItems : [placeholder];
         arr = newArr;
     });
-    console.log('items', items);
     return items;
 };
 const init = (initialState) => {

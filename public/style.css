@@ -28,6 +28,7 @@
 }
 body {
   background: linear-gradient(180deg, #2C3039 0%, #242424 60%);
+  background-attachment: fixed;
   background-color: #2C3039;
   color: white;
   display: flex;
@@ -58,12 +59,22 @@ body #app .header .summary.running {
 body #app .tasks {
   margin-top: 20px;
   margin-bottom: 120px;
+  max-width: 100%;
+  padding: 0 10px;
 }
 body #app .tasks .task {
   position: relative;
   display: flex;
-  font-weight: normal;
+  font-weight: lighter;
   padding: 5px 10px;
+  width: 100%;
+  opacity: 0.8;
+}
+body #app .tasks .task .title {
+  width: 100%;
+}
+body #app .tasks .task .time {
+  margin-left: 10px;
 }
 body #app .tasks .task .edit {
   position: absolute;
@@ -75,9 +86,7 @@ body #app .tasks .task .edit:hover {
 }
 body #app .tasks .task.selected {
   font-weight: bold;
-}
-body #app .tasks .task .time {
-  margin-left: auto;
+  opacity: 1;
 }
 body #app .panel {
   width: 100%;
@@ -88,7 +97,11 @@ body #app .panel {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background: #242424;
+  background: rgba(36, 36, 36, 0.8);
+}
+body #app .panel.backdrop {
+  background: rgba(36, 36, 36, 0.3);
+  -webkit-backdrop-filter: blur(5px);
 }
 body #app .panel .input {
   width: 300px;
@@ -107,5 +120,10 @@ body #app .panel .btns {
   padding-bottom: 20px;
 }
 body #app .panel .btns .btn {
-  padding: 5px 10px;
+  padding: 5px 15px;
+}
+body #app .panel .btns svg {
+  fill: white;
+  width: 30px;
+  height: 30px;
 }

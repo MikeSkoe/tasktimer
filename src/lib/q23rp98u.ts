@@ -32,6 +32,8 @@ export type HFn = <T>(
       key?: number | string,
       id?: string,
       contentEditable?: boolean,
+      innerHTML?: string,
+      value?: string,
 },
 	...children: ((WithKey & WithDel) | HTMLCanvasElement | El | string)[]
 ) => T & WithKey & WithDel;
@@ -165,9 +167,7 @@ const map = (state: GetState, sub: Sub) =>
 	const [fnArg] = getArgs(fn);
 	let arr = state()[fnArg];
 	const placeholder = c('div');
-   console.log('placeholder', placeholder);
 	let items = [placeholder].concat(...arr.map(fn));
-   console.log('items', items);
 
 	sub([fnArg], (...stVals) => {
 		const newArr = state()[fnArg];
@@ -175,7 +175,7 @@ const map = (state: GetState, sub: Sub) =>
 		const removedVals = arr.filter( notIn(newArr));
 		const oldWithoutRemoved = arr.filter( notIn(removedVals));
 		const newWithoutAdded = newArr.filter( notIn(addedVals));
-		const newItems = [];
+		const newItems = [placeholder];
 
 		removedVals.forEach(
 			val => {
@@ -211,7 +211,6 @@ const map = (state: GetState, sub: Sub) =>
       items = newItems.length > 0 ? newItems : [placeholder];
 		arr = newArr;
 	});
-   console.log('items', items);
 	return items;
 };
 

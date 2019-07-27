@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "homepage": "https://mikeskoe.github.io/tasktimer",
-  "predeploy": "npm run ts",
-  "deploy": "gh-pages -d build",
   "scripts": {
     "server": "node server.js",
     "ts": "tsc -w",
     "less": "node node_modules/less-watch-compiler/dist/less-watch-compiler.js src public style.less",
-    "start": "npm run server | npm run less | npm run ts"
+    "start": "npm run server | npm run less | npm run ts",
+    "deploy": "git push origin `git subtree split --prefix public master`:gh-pages --force"
   },
   "keywords": [],
   "author": "",
