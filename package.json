@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://mikeskoe.github.io/tasktimer",
+  "predeploy": "npm run ts",
+  "deploy": "gh-pages -d build",
   "scripts": {
     "server": "node server.js",
     "ts": "tsc -w",
@@ -16,6 +19,8 @@
     "express": "^4.17.0"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "gh-pages-deploy": "^0.5.1",
     "less-watch-compiler": "^1.13.0"
   }
 }
