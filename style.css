@@ -27,9 +27,8 @@
   src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCv6KVjbNBYlgoCxCvjsGyI.ttf) format('truetype');
 }
 body {
-  background: linear-gradient(180deg, #2C3039 0%, #242424 60%);
   background-attachment: fixed;
-  background-color: #2C3039;
+  background-color: #242424;
   color: white;
   display: flex;
   justify-content: center;
@@ -97,10 +96,10 @@ body #app .panel {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background: rgba(36, 36, 36, 0.8);
+  background: rgba(36, 36, 36, 0.9);
 }
 body #app .panel.backdrop {
-  background: rgba(36, 36, 36, 0.3);
+  background: rgba(0, 0, 0, 0);
   -webkit-backdrop-filter: blur(5px);
 }
 body #app .panel .input {

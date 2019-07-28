@@ -1,10 +1,11 @@
-const cacheName = 'v1';
+const cacheName = 'v2';
 const cacheAssets = [
     '/',
     '/index.html',
     '/index.js',
     '/lib/q23rp98u.js',
     '/style.css',
+    'https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap',
 ];
 self.addEventListener('install', (e) => {
     e.waitUntil(caches.open(cacheName)
